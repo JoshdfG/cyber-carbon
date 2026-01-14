@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/opt/homebrew/bin/bash
 
 # Grab global variable for showing datetime widget, only hide if explicitly disabled
 SHOW_DATETIME=$(tmux show-option -gv @cyber-carbon-tmux_show_time 2>/dev/null)
