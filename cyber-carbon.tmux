@@ -10,7 +10,7 @@ source "$SCRIPTS_PATH/themes.sh" || {
 
 tmux set -g status-left-length 80
 tmux set -g status-right-length 150
-tmux set -g mode-style "fg=${THEME[black]},bg=${THEME[yellow_bright]},bold"
+tmux set -g mode-style "fg=${THEME[bblack]},bg=${THEME[yellow_bright]},bold"
 
 # this controls the bg color and text color for the command mode in tmux
 tmux set -g message-style "bg=${THEME[black]},fg=${THEME[white]},bold"
