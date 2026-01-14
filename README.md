@@ -15,7 +15,7 @@ This theme has the following hard requirements:
 Add this to your `.tmux.conf`:
 
 ```tmux
-set -g @plugin 'your-username/cyber-carbon-tmux'
+set -g @plugin 'JoshdfG/cyber-carbon'
 
 ```
 
