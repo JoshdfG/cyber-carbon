@@ -52,6 +52,19 @@ elif [[ $PROVIDER == "gitlab.com" ]]; then
 else
 	exit 0
 fi
+# Check for uncommitted changes
+# --porcelain is stable for scripting; -uno ignores untracked files if you only want tracked changes
+if [[ -n $(git status --porcelain) ]]; then
+	# DIRTY: Red color from your theme
+	COLOR="#[fg=${THEME[red]}]"
+else
+	# CLEAN: Green color from your theme
+	COLOR="#[fg=${THEME[green]}]"
+fi
+# Return the color + the branch name (or icon)
+echo "${COLOR} ${BRANCH}"
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
 if [[ $PR_COUNT -gt 0 ]]; then
 	PR_STATUS="#[fg=${THEME[ghgreen]},bg=${THEME[background]},bold] ${RESET}${PR_COUNT} "

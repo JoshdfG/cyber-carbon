@@ -52,7 +52,10 @@ $RESET#[fg=${THEME[foreground]}]\
 #{?window_zoomed_flag,"
 
 right_status="\
-#[fg=${THEME[bgreen]},bg=${THEME[white]}]$git_status#[fg=${THEME[ghpurple]},bg=${THEME[black]}]$wb_git_status#[fg=${THEME[ghred]},bg=${THEME[black]}]$battery_status#[fg=${THEME[ghyellow]},bg=${THEME[black]}]$date_and_time"
+$git_status \
+#[fg=${THEME[ghpurple]},bg=${THEME[black]}]$wb_git_status \
+#[fg=${THEME[ghred]},bg=${THEME[background]}]$battery_status \
+#[fg=${THEME[ghyellow]},bg=${THEME[black]}]$date_and_time"
 
 tmux set -g status-right "$right_status"
 
