@@ -51,6 +51,8 @@ $window_number#W\
 #{?window_zoomed_flag, $zoom_number, $custom_pane}\
 #{?window_last_flag, ,}"
 
+set -g @gruvbox-tmux_transparent 1
+
 tmux set -g window-status-format "\
 $RESET#[fg=${THEME[foreground]}] \
 #{?#{==:#{pane_current_command},ssh},󰣀 ,$terminal_icon }\
