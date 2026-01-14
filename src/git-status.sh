@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/opt/homebrew/bin/bash
 
 SHOW_NETSPEED=$(tmux show-option -gv @cyber-carbon-tmux_show_git)
 if [ "$SHOW_NETSPEED" == "0" ]; then
