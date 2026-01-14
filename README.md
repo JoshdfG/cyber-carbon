@@ -19,13 +19,6 @@ set -g @plugin 'JoshdfG/cyber-carbon'
 
 ```
 
-Alternatively, to run it manually:
-
-```tmux
-run-shell "/opt/homebrew/bin/bash ~/path/to/cyber-carbon.tmux"
-
-```
-
 ## Configuration
 
 > **Note**: All configuration settings **must** be placed before the `run-shell` or TPM initialization line in your `.tmux.conf`.
