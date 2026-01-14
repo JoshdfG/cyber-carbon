@@ -118,6 +118,8 @@ else
 	THEME['ghred']="#f7768e"    # Neon Red
 	THEME['ghyellow']="#e0af68" # Sunset Orange
 	THEME['yellow_bright']="#ebcb8b"
+	THEME["hard_foreground"]="#cfcfff"
+
 fi
 
 RESET="#[fg=${THEME[foreground]},bg=${THEME[background]},nobold,noitalics,nounderscore,nodim]"

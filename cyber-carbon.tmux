@@ -62,7 +62,7 @@ $window_number#W\
 #{?window_last_flag, ,}"
 
 right_status="\
-#[fg=${THEME[ghgreen]},bg=${THEME[black]}]$git_status#[fg=${THEME[ghpurple]},bg=${THEME[black]}]$wb_git_status#[fg=${THEME[ghred]},bg=${THEME[black]}]$battery_status#[fg=${THEME[ghyellow]},bg=${THEME[black]}]$date_and_time"
+#[fg=${THEME[ghgreen]},bg=${THEME[white]}]$git_status#[fg=${THEME[ghpurple]},bg=${THEME[black]}]$wb_git_status#[fg=${THEME[ghred]},bg=${THEME[black]}]$battery_status#[fg=${THEME[ghyellow]},bg=${THEME[black]}]$date_and_time"
 
 tmux set -g status-right "$right_status"
 
