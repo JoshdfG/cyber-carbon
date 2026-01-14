@@ -23,17 +23,12 @@ tmux set -g pane-border-status off
 
 tmux set -g status-style "fg=${THEME[foreground]},bg=${THEME[background]}"
 
-window_id_style="$(tmux show-option -gv @gruvbox-tmux_window_id_style 2>/dev/null || echo "digital")"
-pane_id_style="$(tmux show-option -gv @gruvbox-tmux_pane_id_style 2>/dev/null || echo "hsquare")"
-zoom_id_style="$(tmux show-option -gv @gruvbox-tmux_zoom_id_style 2>/dev/null || echo "dsquare")"
+window_id_style="$(tmux show-option -gv @gruvbox-tmux_window_id_style 2>/dev/null || echo "super")"
 terminal_icon="$(tmux show-option -gv @gruvbox-tmux_terminal_icon 2>/dev/null || echo '')"
 active_terminal_icon="$(tmux show-option -gv @gruvbox-tmux_active_terminal_icon 2>/dev/null || echo '')"
 
 git_status="#($SCRIPTS_PATH/git-status.sh #{pane_current_path})"
 wb_git_status="#($SCRIPTS_PATH/wb-git-status.sh #{pane_current_path} &)"
-window_number="#($SCRIPTS_PATH/custom-number.sh #I $window_id_style)"
-custom_pane="#($SCRIPTS_PATH/custom-number.sh #P $pane_id_style)"
-zoom_number="#($SCRIPTS_PATH/custom-number.sh #P $zoom_id_style)"
 date_and_time="$($SCRIPTS_PATH/datetime-widget.sh)"
 battery_status="#($SCRIPTS_PATH/battery-widget.sh)"
 
@@ -41,30 +36,47 @@ tmux set -g status-left "\
 #[fg=${THEME[black]},bg=${THEME[blue]},bold] \
 #{?client_prefix,󰠠 ,󰤂 }\
 #[bold,nodim]#S "
-
-tmux set -g window-status-current-format "\
-$RESET#[fg=${THEME[bgreen]},bg=${THEME[bblack]}] \
-#{?#{==:#{pane_current_command},ssh},󰣀 ,$active_terminal_icon }\
-#[fg=${THEME[bpurple]},bold,nodim]\
-$window_number#W\
-#[nobold]\
-#{?window_zoomed_flag, $zoom_number, $custom_pane}\
-#{?window_last_flag, ,}"
+#
+# tmux set -g window-status-current-format "\
+# $RESET#[fg=${THEME[bgreen]},bg=${THEME[bblack]}] \
+# #{?#{==:#{pane_current_command},ssh},󰣀 ,$active_terminal_icon }\
+# #[fg=${THEME[bpurple]},bold,nodim]\
+# $window_number#W\
+# #[nobold]\
+# #{?window_zoomed_flag, $zoom_number, $custom_pane}\
+# #{?window_last_flag, ,}"
 
 set -g @gruvbox-tmux_transparent 1
+# Window Status Current (Active)
+
+tmux set -g window-status-current-format "\
+$RESET#[fg=${THEME[bpurple]},bold]\
+#($SCRIPTS_PATH/custom-number.sh #I $window_id_style)\
+#[fg=${THEME[bpurple]},bg=${THEME[bblack]}] \
+#{?#{==:#{pane_current_command},ssh},󰣀 ,$active_terminal_icon }#W\
+#[nobold,dim]\
+#{?window_zoomed_flag, "
 
 tmux set -g window-status-format "\
-$RESET#[fg=${THEME[foreground]}] \
-#{?#{==:#{pane_current_command},ssh},󰣀 ,$terminal_icon }\
-${RESET}\
-$window_number#W\
+$RESET#[fg=${THEME[foreground]}]\
+#($SCRIPTS_PATH/custom-number.sh #I $window_id_style)\
+#[fg=${THEME[foreground]}] \
+#{?#{==:#{pane_current_command},ssh},󰣀 ,$terminal_icon }#W\
 #[nobold,dim]\
-#{?window_zoomed_flag, $zoom_number, $custom_pane}\
-#[fg=${THEME[yellow]}]\
-#{?window_last_flag, ,}"
+#{?window_zoomed_flag, "
+
+# tmux set -g window-status-format "\
+# $RESET#[fg=${THEME[foreground]}] \
+# #{?#{==:#{pane_current_command},ssh},󰣀 ,$terminal_icon }\
+# ${RESET}\
+# $window_number#W\
+# #[nobold,dim]\
+# #{?window_zoomed_flag, $zoom_number, $custom_pane}\
+# #[fg=${THEME[yellow]}]\
+# #{?window_last_flag, ,}"
 
 right_status="\
-#[fg=${THEME[ghgreen]},bg=${THEME[white]}]$git_status#[fg=${THEME[ghpurple]},bg=${THEME[black]}]$wb_git_status#[fg=${THEME[ghred]},bg=${THEME[black]}]$battery_status#[fg=${THEME[ghyellow]},bg=${THEME[black]}]$date_and_time"
+#[fg=${THEME[bgreen]},bg=${THEME[white]}]$git_status#[fg=${THEME[ghpurple]},bg=${THEME[black]}]$wb_git_status#[fg=${THEME[ghred]},bg=${THEME[black]}]$battery_status#[fg=${THEME[ghyellow]},bg=${THEME[black]}]$date_and_time"
 
 tmux set -g status-right "$right_status"
 
