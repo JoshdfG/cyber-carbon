@@ -1,7 +1,7 @@
 #!/opt/homebrew/bin/bash
 
-SELECTED_THEME="$(tmux show-option -gv @gruvbox-tmux_theme 2>/dev/null || echo "hard")"
-TRANSPARENT_THEME="$(tmux show-option -gv @gruvbox-tmux_transparent 2>/dev/null || echo 0)"
+SELECTED_THEME="$(tmux show-option -gv @cyber-carbon-tmux_theme 2>/dev/null || echo "hard")"
+TRANSPARENT_THEME="$(tmux show-option -gv @cyber-carbon-tmux_transparent 2>/dev/null || echo 0)"
 
 declare -A THEMES=(
 	# light (Clean Paper)

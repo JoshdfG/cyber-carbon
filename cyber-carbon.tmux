@@ -10,9 +10,7 @@ source "$SCRIPTS_PATH/themes.sh" || {
 
 tmux set -g status-left-length 80
 tmux set -g status-right-length 150
-# This uses your specific #FFE073 for the selection highlight in copy-mode
 tmux set -g mode-style "fg=${THEME[black]},bg=${THEME[yellow_bright]},bold"
-# tmux set -g mode-style "fg=${THEME[background]},bg=${THEME[foreground]},reverse"
 
 tmux set -g message-style "bg=${THEME[bblue]},fg=${THEME[background]},bold"
 tmux set -g message-command-style "fg=${THEME[white]},bg=${THEME[black]},bold"
@@ -23,9 +21,9 @@ tmux set -g pane-border-status off
 
 tmux set -g status-style "fg=${THEME[foreground]},bg=${THEME[background]}"
 
-window_id_style="$(tmux show-option -gv @gruvbox-tmux_window_id_style 2>/dev/null || echo "super")"
-terminal_icon="$(tmux show-option -gv @gruvbox-tmux_terminal_icon 2>/dev/null || echo '')"
-active_terminal_icon="$(tmux show-option -gv @gruvbox-tmux_active_terminal_icon 2>/dev/null || echo '')"
+window_id_style="$(tmux show-option -gv @cyber-carbon-tmux_window_id_style 2>/dev/null || echo "medium")"
+terminal_icon="$(tmux show-option -gv @cyber-carbon_terminal_icon 2>/dev/null || echo '')"
+active_terminal_icon="$(tmux show-option -gv @cyber-carbon-tmux_active_terminal_icon 2>/dev/null || echo '')"
 
 git_status="#($SCRIPTS_PATH/git-status.sh #{pane_current_path})"
 wb_git_status="#($SCRIPTS_PATH/wb-git-status.sh #{pane_current_path} &)"
