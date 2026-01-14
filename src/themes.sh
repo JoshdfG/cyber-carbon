@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/opt/homebrew/bin/bash
 
-SELECTED_THEME="$(tmux show-option -gv @gruvbox-tmux_theme 2>/dev/null || echo "hard")"
-TRANSPARENT_THEME="$(tmux show-option -gv @gruvbox-tmux_transparent 2>/dev/null || echo 0)"
+SELECTED_THEME="$(tmux show-option -gv @cyber-carbon-tmux_theme 2>/dev/null || echo "hard")"
+TRANSPARENT_THEME="$(tmux show-option -gv @cyber-carbon-tmux_transparent 2>/dev/null || echo 0)"
 
 declare -A THEMES=(
 	# light (Clean Paper)
@@ -64,13 +64,12 @@ declare -A THEMES=(
 	[medium_bwhite]="#e5e9f0"     # Bright snow
 	[medium_byellow]="#ebcb8b"    # Goldenrod	# hard
 
-	# custom-carbon (Replace 'hard' values with these)
 	[hard_background]="#1E1E2E" #bg color black -#0f0f14 tokyo-night: #1E1E2E
 	[hard_foreground]="#cfcfff"
 	[hard_black]="#0f0f14"
 	[hard_blue]="#7aa2f7" #active pane bg color
 	[hard_aqua]="#00ff9c"
-	[hard_green]="#a6e22e"
+	[hard_green]="#47FF9C"
 	[hard_purple]="#b4a2ff"
 	[hard_red]="#ff5189"
 	[hard_white]="#cfcfff"
